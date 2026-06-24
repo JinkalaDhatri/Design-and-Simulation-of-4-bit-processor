@@ -1,0 +1,54 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity alu_tb is
+end alu_tb;
+
+architecture Behavioral of alu_tb is
+
+signal A      : std_logic_vector(3 downto 0);
+signal B      : std_logic_vector(3 downto 0);
+signal Opcode : std_logic_vector(3 downto 0);
+
+signal Result : std_logic_vector(3 downto 0);
+
+begin
+
+uut : entity work.alu
+
+port map(
+
+A => A,
+B => B,
+Opcode => Opcode,
+Result => Result
+
+);
+
+process
+
+begin
+
+A <= "0101";
+B <= "0011";
+
+Opcode <= "0000";
+wait for 50 ns;
+
+Opcode <= "0001";
+wait for 50 ns;
+
+Opcode <= "0010";
+wait for 50 ns;
+
+Opcode <= "0011";
+wait for 50 ns;
+
+Opcode <= "0100";
+wait for 50 ns;
+
+wait;
+
+end process;
+
+end Behavioral;
